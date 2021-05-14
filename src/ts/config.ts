@@ -9,7 +9,7 @@ export interface IConfig {
 
 export async function loadConfig(): Promise<IConfig> {
     let getConfigReq = $.ajax({
-        method: 'POST',
+        method: 'GET',
         url: '/config.json'
     });
 

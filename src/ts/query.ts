@@ -22,8 +22,8 @@ export async function queryApi() {
     loadingIcon.classList.value = "loading-icon";
     document.body.appendChild(loadingIcon);
 
-    let mainElem = document.querySelector("main");
-    mainElem.classList.add('darkened');
+    let toDarken = document.querySelectorAll("main");
+    toDarken.forEach(e => e.classList.add('darkened'));
 
     let response = await queryApiReq;
     window.sessionStorage.setItem('queryResults', JSON.stringify(response));
