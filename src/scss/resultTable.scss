@@ -1,0 +1,44 @@
+@use "./util/fonts" as *;
+@use "./util/button" as *;
+
+main.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div.results {
+        background-color: #F7F7F7;
+        border: 1px solid #F7F7F7;
+        border-radius: 5px;
+
+        padding: 2rem;
+        margin-top: 3rem;
+        
+        .header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            @include button();
+            button {
+                margin-bottom: 1rem;
+                margin-right: .5rem;
+            }
+        
+            p {
+                @include set-font();
+                margin: 0;
+                margin-bottom: 1rem;
+                
+            }
+        }
+
+        table {
+            @include set-font();
+
+            td {
+                padding: 5px;
+            }
+        }
+    }
+}

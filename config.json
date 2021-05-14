@@ -1,0 +1,66 @@
+{
+    "host": "http://localhost:8080",
+    "relationTypeValues": [
+        "Klant",
+        "Overheid",
+        "Investeerder",
+        "Partner",
+        "Reseller",
+        "Leverancier",
+        "Utility Company"
+    ],
+    "locationType": [
+        "Bar/Kroeg",
+        "Restaurant",
+        "Discotheek/Club",
+        "Sport",
+        "Museum, Tentoonstelling",
+        "Theater",
+        "Overheids/bedrijfs gebouw"
+    ],
+    "products": [
+        "Urinoir: Keramisch (Falcon)",
+        "Urinoir: MRF Kunstof",
+        "Media Player",
+        "Reinigingsmiddelen (EnzyForce)",
+        "DanDryer",
+        "Luchtreiniger",
+        "PVC Wand",
+        "Media (Ads)",
+        "Filter (Falcon Droog)",
+        "Filter (Falcon Nat)",
+        "Filter (MRF)",
+        "Filter (Geberit Droog)"
+    ],
+    "provinces": [
+        "Groningen",
+        "Drenthe",
+        "Overijssel",
+        "Utrecht",
+        "Noord-Holland",
+        "Zuid-Holland",
+        "Zeeland",
+        "Noord-Brabant",
+        "Limburg (Nederland)",
+        "Antwerpen",
+        "Limburg (Belgie)",
+        "Oost-Vlaanderen",
+        "Vlaams-Brabant",
+        "West-Vlaanderen",
+        "Henegouwen",
+        "Luik",
+        "Luxemburg (Belgie)",
+        "Namen",
+        "Waals-Brabant"
+    ],
+    "contactRoles": [
+        "Directeur/Eigenaar",
+        "Bedrijfsleider",
+        "Commercieel",
+        "Facilitair",
+        "Inkoop",
+        "Administratie",
+        "Technish/IT",
+        "Marketing"
+    ]
+}

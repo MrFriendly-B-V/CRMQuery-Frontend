@@ -1,0 +1,11 @@
+@forward "./nav.scss";
+@forward "./inputForm.scss";
+@forward "./resultTable.scss";
+@forward "./loadingIcon.scss";
+
+html, body {
+    background-color: #282c34;
+    width: 100%;
+    margin: 0;
+}
+

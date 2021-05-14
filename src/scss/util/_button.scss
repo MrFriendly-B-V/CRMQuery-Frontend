@@ -1,0 +1,20 @@
+@use "./fonts" as *;
+
+@mixin button() {
+    button {
+        @include set-font();        
+        padding: 3px 6px 3px 6px;
+    
+        border: 1px solid #282C34;
+        background-color: #282C34;
+        border-radius: 2px;
+        color: #F7F7F7;
+    }
+    
+    button:hover {
+        background-color: lighten(#282C34, 10%);
+        color: darken(#F7F7F7, 10%);
+        cursor: pointer;
+        transition: .5s ease;
+    }
+}

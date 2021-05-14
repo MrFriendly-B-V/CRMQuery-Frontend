@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title> MrFriendly CRMQuery</title>
+        <script src="./dist/dist.js"></script>
+    </head>
+    <body>
+        <main class="results">
+            <div class="results">
+                <div class="header">
+                    <button id="download-as-csv">Downloaden als CSV</button>
+                    <button id="next-query-btn">Volgende Query</button>
+                    <p id="result-count"></p>
+                </div>
+                <table id="result-table" class="result-table">
+
+                </table>
+            </div>
+        </main>
+        <script>
+            CRMQuery.loadResults();
+        </script>
+    </body>
+</html>

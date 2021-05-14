@@ -1,0 +1,50 @@
+@use "./util/fonts" as *;
+@use "./util/button" as *;
+
+main.input-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div.input-form {
+        background-color: #F7F7F7;
+        border: 1px solid #F7F7F7;
+        border-radius: 5px;
+
+        padding: 2rem;
+        margin-top: 3rem;
+    
+        h2 {
+            @include set-font();
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+    
+            label {
+                @include set-font();
+                margin-top: 0.75rem;
+                margin-bottom: 0.25rem;
+            }
+    
+            select {
+                padding: 6px;
+                border: 1px solid gray;
+                border-radius: 5px;
+                width: 30vw;
+
+                option {
+                    @include set-font();
+                }
+            }
+        }
+
+        @include button();
+        button {
+            margin-top: 1.5rem;
+        }
+    }
+}
+
