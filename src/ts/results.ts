@@ -18,10 +18,10 @@ interface IResultData {
 
 interface IContact {
     id:             string,
-    name:           string,
+    lastName:       string,
     emailAddress:   string,
     phoneNumber:    string,
-    firstName:     string
+    firstName:      string
 }
 
 export async function loadResults() {
@@ -48,8 +48,8 @@ export async function loadResults() {
             insertTr('Relatie Type', headerRow);
             insertTr('Stad', headerRow);
             insertTr('Provincie', headerRow);
-            insertTr('Contact Voornaam', headerRow);
-            insertTr('Contact Naam', headerRow);
+            insertTr('Voornaam', headerRow);
+            insertTr('Achternaam', headerRow);
             insertTr('E-Mail', headerRow);
             insertTr('Telefoonnummer', headerRow);
         }
@@ -72,7 +72,7 @@ export async function loadResults() {
             insertCell(account.shipping_address_city?? "", row);
             insertCell(account.shipping_address_state?? "", row);
             insertCell(contact.firstName, row);
-            insertCell(contact.name, row);
+            insertCell(contact.lastName, row);
             insertCell(email, row);
             insertCell(contact.phoneNumber?? "", row);
         });
