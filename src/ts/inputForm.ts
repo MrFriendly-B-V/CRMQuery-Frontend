@@ -60,7 +60,7 @@ export async function loadForm() {
         await processors[i];
     }
 
-    (<any> $('.chosen-select')).chosen();
+    (<any>$('.chosen-select')).chosen();
     (<any>$(".tagging")).select2({
         tags: true,
         tokenSeparators: [',']

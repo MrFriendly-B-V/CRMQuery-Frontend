@@ -19,8 +19,9 @@ interface IResultData {
 interface IContact {
     id:             string,
     name:           string,
-    emailAddress:  string,
-    phoneNumber:   string
+    emailAddress:   string,
+    phoneNumber:    string,
+    firstName:     string
 }
 
 export async function loadResults() {
@@ -47,6 +48,7 @@ export async function loadResults() {
             insertTr('Relatie Type', headerRow);
             insertTr('Stad', headerRow);
             insertTr('Provincie', headerRow);
+            insertTr('Contact Voornaam', headerRow);
             insertTr('Contact Naam', headerRow);
             insertTr('E-Mail', headerRow);
             insertTr('Telefoonnummer', headerRow);
@@ -69,6 +71,7 @@ export async function loadResults() {
             insertCell((account.account_type?? new Array()).join(", "), row);
             insertCell(account.shipping_address_city?? "", row);
             insertCell(account.shipping_address_state?? "", row);
+            insertCell(contact.firstName, row);
             insertCell(contact.name, row);
             insertCell(email, row);
             insertCell(contact.phoneNumber?? "", row);
