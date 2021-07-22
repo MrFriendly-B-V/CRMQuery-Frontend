@@ -25,7 +25,7 @@ export async function queryApi() {
     toDarken.forEach(e => e.classList.add('darkened'));
 
     let response = await queryApiReq;
-    window.sessionStorage.setItem('queryResults', JSON.stringify(response));
+    window.sessionStorage.setItem('queryResults', response);
 
     window.location.href = "/results.html";
 }
