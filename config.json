@@ -1,5 +1,6 @@
 {
     "host": "{{HOST}}",
+    "authserverHost": "{{AUTHLANDER_HOST}}",
     "relationTypeValues": [
         "Klant",
         "Overheid",

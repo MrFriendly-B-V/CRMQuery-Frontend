@@ -1,5 +1,6 @@
 import { loadConfig } from "./config";
 import { queryApi } from "./query";
+import { handleLogin } from "./util";
 
 export interface IInputForm extends HTMLFormElement {
     products:       HTMLSelectElement,
@@ -12,6 +13,8 @@ export interface IInputForm extends HTMLFormElement {
 }
 
 export async function loadForm() {
+    await handleLogin()
+
     let config = await loadConfig();
     const INPUT_FORM = <IInputForm> document.getElementById('input-form');
 

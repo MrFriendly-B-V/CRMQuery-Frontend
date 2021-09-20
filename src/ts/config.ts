@@ -1,23 +1,27 @@
 export interface IConfig {
-    host:                   string,
-    relationTypeValues:     string[],
-    locationType:           string[],
-    products:               string[],
-    provinces:              string[],
+    host:                   string
+    authserverHost:         string
+    relationTypeValues:     string[]
+    locationType:           string[]
+    products:               string[]
+    provinces:              string[]
     contactRoles:           string[]
 }
 
 export async function loadConfig(): Promise<IConfig> {
-    let getConfigReq = $.ajax({
+    let fetched = await fetch('/config.json', {
         method: 'GET',
-        url: '/config.json'
-    });
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
 
-    getConfigReq.fail((e) => {
-        alert('Failed to load configuration.');
-        console.error(e);
-    });
-
-    let config = <IConfig> await getConfigReq;
-    return config;
+    switch(fetched.status) {
+        case 200:
+            let config = <IConfig> await fetched.json()
+            return config
+        default:
+            alert('Failed to load configuration')
+            throw new Error(await fetched.json())
+    }
 } 

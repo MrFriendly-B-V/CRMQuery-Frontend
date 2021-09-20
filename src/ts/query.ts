@@ -1,19 +1,19 @@
 import { loadConfig } from "./config";
 import { IInputForm } from "./inputForm"; 
+import { getCookie, handleLogin } from "./util";
 
 export async function queryApi() {
-    let config = await loadConfig();
+    await handleLogin()
 
+    let config = await loadConfig();
     const INPUT_FORM = <IInputForm> document.getElementById('input-form');
 
     let products = Array.from(INPUT_FORM.products.querySelectorAll('option:checked'), (e: HTMLOptionElement) => e.value)?? new Array();
-    let queryApiReq = $.ajax({
-        method: 'POST',
-        url: config.host + "/query",
-        data: {
-            products: (products.length != 0) ? products.join(",") : null,
-        }
-    });
+    let relationType = Array.from(INPUT_FORM.accountType.querySelectorAll('option:checked'), (e: HTMLOptionElement) => e.value)?? new Array();
+    let locationType = Array.from(INPUT_FORM.locationType.querySelectorAll('option:checked'), (e: HTMLOptionElement) => e.value)?? new Array();
+    let province = Array.from(INPUT_FORM.province.querySelectorAll('option:checked'), (e: HTMLOptionElement) => e.value)?? new Array();
+    let city = Array.from(INPUT_FORM.city.querySelectorAll('option:checked'), (e: HTMLOptionElement) => e.value)?? new Array();
+    let contactRole = Array.from(INPUT_FORM.contactRole.querySelectorAll('option:checked'), (e: HTMLOptionElement) => e.value)?? new Array();
 
     let loadingIcon = document.createElement('object');
     loadingIcon.data = '/img/loading_icon.svg';
@@ -24,8 +24,32 @@ export async function queryApi() {
     let toDarken = document.querySelectorAll("main");
     toDarken.forEach(e => e.classList.add('darkened'));
 
-    let response = await queryApiReq;
-    window.sessionStorage.setItem('queryResults', response);
-
-    window.location.href = "/results.html";
+    fetch(`${config.host}/query`, {
+        method: 'POST',
+        headers: {
+            'Authorization': getCookie('sessionid'),
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            products: (products.length != 0) ? products.join(",") : null,
+            relationType: (relationType.length != 0) ? relationType.join(",") : null,
+            locationType: (locationType.length != 0) ? locationType.join(",") : null,
+            province: (province.length != 0) ? province.join(",") : null,
+            city: (city.length != 0) ? city.join(",") : null,
+            contactRole: (contactRole.length != 0) ? contactRole.join(",") : null,
+        })
+    })
+    .then(async r => {
+        switch(r.status) {
+            case 200:
+                r.text().then(t => {
+                    window.sessionStorage.setItem('queryResults', t)
+                    window.location.href = "/results.html"
+                })
+                break
+            default:
+                alert('An error occurred')
+                throw new Error(await r.json())
+        }
+    })
 }

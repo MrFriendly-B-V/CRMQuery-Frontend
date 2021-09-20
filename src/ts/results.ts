@@ -1,5 +1,5 @@
-import { loadConfig } from "./config";
 import { download_table_as_csv } from "./downloadAsCsv";
+import { handleLogin } from "./util";
 
 interface IResponse {
     result: IResultData[]
@@ -25,6 +25,8 @@ interface IContact {
 }
 
 export async function loadResults() {
+    await handleLogin()
+
     document.getElementById('download-as-csv').addEventListener("click", (_e) => {
         download_table_as_csv('result-table')
     });
