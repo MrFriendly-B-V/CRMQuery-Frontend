@@ -7,6 +7,6 @@ RUN npx webpack
 
 FROM nginx:1.21.1-alpine
 COPY --from=builder /usr/local/src/dist/* /usr/share/nginx/html/dist/
-COPY ./img/* /usr/share/nginx/img/
+COPY ./img/* /usr/share/nginx/html/img/
 COPY ./*.html /usr/share/nginx/html/
 COPY ./config.json /usr/share/nginx/html/config.json

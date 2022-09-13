@@ -33,7 +33,7 @@ export async function loadResults() {
 
     let queriedResults = window.sessionStorage.getItem("queryResults");
     if(queriedResults == null) {
-        window.location.href = "/index.html";
+        window.location.href = "index.html";
         return;
     }
 
@@ -81,7 +81,7 @@ export async function loadResults() {
     }
 
     document.getElementById('result-count').innerHTML = (RESULT_TABLE.rows.length -1) + " Resultaten";
-    document.getElementById('next-query-btn').addEventListener("click", _e => window.location.href = "/index.html");
+    document.getElementById('next-query-btn').addEventListener("click", _e => window.location.href = "index.html");
 }
 
 function insertTr(name: string, row: HTMLTableRowElement) {

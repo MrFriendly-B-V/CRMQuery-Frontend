@@ -16,7 +16,7 @@ export async function queryApi() {
     let contactRole = Array.from(INPUT_FORM.contactRole.querySelectorAll('option:checked'), (e: HTMLOptionElement) => e.value)?? new Array();
 
     let loadingIcon = document.createElement('object');
-    loadingIcon.data = '/img/loading_icon.svg';
+    loadingIcon.data = 'img/loading_icon.svg';
     loadingIcon.type = 'image/svg+xml';
     loadingIcon.classList.value = "loading-icon";
     document.body.appendChild(loadingIcon);
@@ -44,7 +44,7 @@ export async function queryApi() {
             case 200:
                 r.text().then(t => {
                     window.sessionStorage.setItem('queryResults', t)
-                    window.location.href = "/results.html"
+                    window.location.href = "results.html"
                 })
                 break
             default:
