@@ -9,7 +9,7 @@ export interface IConfig {
 }
 
 export async function loadConfig(): Promise<IConfig> {
-    let fetched = await fetch('/config.json', {
+    let fetched = await fetch('config.json', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'

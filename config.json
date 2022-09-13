@@ -1,6 +1,6 @@
 {
-    "host": "https://crmquery-api.intern.mrfriendly.nl",
-    "authserverHost": "https://authlander.intern.mrfriendly.nl",
+    "host": "https://intern.mrfriendly.uk/crmquery/api",
+    "authserverHost": "https://intern.mrfriendly.uk/auth",
     "relationTypeValues": [
         "Klant",
         "Overheid",
