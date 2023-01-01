@@ -32,11 +32,11 @@ export async function queryApi() {
         },
         body: JSON.stringify({
             products: (products.length != 0) ? products.join(",") : null,
-            relationType: (relationType.length != 0) ? relationType.join(",") : null,
-            locationType: (locationType.length != 0) ? locationType.join(",") : null,
+            relation_type: (relationType.length != 0) ? relationType.join(",") : null,
+            location_type: (locationType.length != 0) ? locationType.join(",") : null,
             province: (province.length != 0) ? province.join(",") : null,
             city: (city.length != 0) ? city.join(",") : null,
-            contactRole: (contactRole.length != 0) ? contactRole.join(",") : null,
+            contact_role: (contactRole.length != 0) ? contactRole.join(",") : null,
         })
     })
     .then(async r => {
